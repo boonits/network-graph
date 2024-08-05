@@ -16,7 +16,7 @@ This project is a web-based network graph visualisation tool built with D3.js. I
 https://github.com/boonits/network-graph.git
 ```
 
-2. Open index.html in a web browser to view the visualisation.
+2. Open `index.html` in a web browser to view the visualisation.
 3. To use your own data, modify the nodeData and edgeData variables in main.js.
 
 ### Dependencies
