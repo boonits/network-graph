@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Graph</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="graph-container">
+            <div class="links-button-container">
+                <button id="showPositive" class="filter-button" title="Show only positive links">
+                    <img src="./assets/positive.svg" alt="Show Positive Links" class="button-icon">
+                </button>
+                <button id="showNegative" class="filter-button" title="Show only negative links">
+                    <img src="./assets/negative.svg" alt="Show Negative Links" class="button-icon">
+                </button>
+                <button id="resetView" class="reset-button" title="Reset link visibility">
+                    <img src="./assets/reset.svg" alt="Reset Links" class="button-icon">
+                </button>
+            </div>
+            <div class="center-button-container">
+                <button id="centerView" class="reset-button" title="Center the graph view">
+                    <img src="./assets/center.svg" alt="Center Graph" class="button-icon">
+                </button>
+            </div>
+            <svg width="100%" height="100%" preserveAspectRatio="xMidYMid meet"></svg>
+        </div>
+        <div class="legend-container">
+            <div class="legend-items"></div>
+            <div class="legend-controls">
+                <button id="selectAll" class="legend-button" title="Select all nodes">Select All</button>
+                <button id="selectNone" class="legend-button" title="Deselect all nodes">Select None</button>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script>
+        
+        // Example usage
+        const nodeData = {
+            "Node 1": 10,
+            "Node 2": 20,
+            "Node 3": 15,
+            "Node 4": 25,
+            "Node 5": 30
+        };
+
+        const edgeData = [
+            { source: "Node 1", target: "Node 2", value: -0.5 },
+            { source: "Node 1", target: "Node 3", value: 0.3 },
+            { source: "Node 2", target: "Node 4", value: 0.7 },
+            { source: "Node 2", target: "Node 5", value: -0.2 },
+            { source: "Node 3", target: "Node 4", value: 0.2 },
+            { source: "Node 3", target: "Node 4", value: 0.2 },
+            { source: "Node 5", target: "Node 4", value: 0.4 }
+        ];
+
+        createNetworkGraph(nodeData, edgeData);
+    </script>
+</body>
+</html>
