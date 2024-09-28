@@ -1,0 +1,167 @@
+:root {
+  --background-color: #f0f0f0;
+  --white: #ffffff;
+  --light-grey: #e0e0e0;
+  --medium-grey: #b0b0b0;
+  --medium-dark-grey: #6c6c6c;
+  --dark-grey: #404040;
+  --border-color: #ccc;
+  --shadow-color: rgba(0,0,0,0.1);
+}
+
+body { 
+  font-family: 'Roboto', Arial, sans-serif; 
+  margin: 0; 
+  padding: 0; 
+  background-color: var(--background-color); 
+}
+
+.container { 
+  display: flex; 
+  height: 100vh; 
+}
+
+.graph-container { 
+  flex: 3; 
+  overflow: hidden; 
+  position: relative;
+}
+
+.legend-container { 
+  flex: 1; 
+  display: flex; 
+  flex-direction: column; 
+  padding: 10px; 
+  background-color: var(--white); 
+  box-shadow: 0 0 10px var(--shadow-color);
+  min-width: 200px;
+  max-width: 300px;
+}
+
+.legend-items { 
+  flex-grow: 1; 
+  overflow-y: auto; 
+  margin-bottom: 10px;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+  flex-shrink: 0;
+}
+
+.node { 
+  stroke: var(--dark-grey); 
+  stroke-width: 1.5px; 
+  cursor: pointer; 
+}
+
+.link { 
+  stroke: var(--dark-grey); 
+  stroke-opacity: 0.6;
+  cursor: pointer; 
+}
+
+.link.negative { 
+  stroke-dasharray: 5, 5; 
+}
+
+.node-label { 
+  pointer-events: none; 
+  fill: var(--dark-grey);
+  paint-order: stroke;
+  stroke: var(--background-color); 
+  stroke-width: 2px;
+  stroke-linecap: butt;
+  stroke-linejoin: miter;
+}
+
+.legend { 
+  cursor: pointer; 
+  display: flex; 
+  align-items: center; 
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+.legend:hover { 
+  background-color: var(--background-color); 
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 3px;
+}
+
+.legend-text {
+  flex-grow: 1;
+  font-size: 14px;
+}
+
+.link.highlighted { 
+  stroke-opacity: 1;
+}
+
+.node.highlighted { 
+  stroke-width: 3px;
+}
+
+.links-button-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 10;
+}
+
+.center-button-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.filter-button, .legend-button { 
+  margin-right: 10px; 
+  padding: 5px 10px; 
+  cursor: pointer; 
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.filter-button:hover, .legend-button:hover {
+  background-color: var(--light-grey);
+  border-color: var(--medium-grey);
+}
+
+.filter-button.active { 
+  background-color: var(--medium-dark-grey); 
+  color: var(--white);
+  border-color: var(--medium-dark-grey); 
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+  transition: filter 0.3s ease;
+}
+
+.filter-button.active .button-icon {
+  filter: brightness(0) invert(1);
+}
+
+.legend-controls { 
+  display: flex; 
+  justify-content: space-between; 
+}
